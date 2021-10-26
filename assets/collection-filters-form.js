@@ -40,10 +40,12 @@ class CollectionFiltersForm extends HTMLElement {
 
   renderPage(searchParams, event, updateURLHash = true) {
     const sections = this.getSections();
-    document.getElementById('CollectionProductGrid').querySelector('.collection').classList.add('loading');
+    const productGrid = document.getElementById('CollectionProductGrid')
+
+    if (productGrid) productGrid.querySelector('.collection').classList.add('loading');
 
     sections.forEach((section) => {
-      const url = `${window.location.pathname}?section_id=${section.section}&${searchParams}`;
+      const url = `${window.location.pathname}?${searchParams}`;
       const filterDataUrl = element => element.url === url;
 
       this.filterData.some(filterDataUrl) ?
@@ -55,6 +57,7 @@ class CollectionFiltersForm extends HTMLElement {
   }
 
   renderSectionFromFetch(url, section, event) {
+    location.href = url
     fetch(url)
       .then(response => response.text())
       .then((responseText) => {
@@ -72,11 +75,16 @@ class CollectionFiltersForm extends HTMLElement {
   }
 
   renderProductGrid(html) {
-    const innerHTML = new DOMParser()
-      .parseFromString(html, 'text/html')
-      .getElementById('CollectionProductGrid').innerHTML;
+    const productGrid = document.getElementById('CollectionProductGrid')
 
-    document.getElementById('CollectionProductGrid').innerHTML = innerHTML;
+    const domParser = new DOMParser().parseFromString(html, 'text/html').getElementById('CollectionProductGrid')
+
+    productGrid.querySelector('.collection').classList.remove('loading');
+    if (productGrid && domParser) {
+      const innerHTML = domParser.innerHTML;
+      productGrid.innerHTML = innerHTML;
+      const productGrid = document.getElementById('CollectionProductGrid')
+    }
   }
 
   renderFilters(html, event) {
@@ -115,14 +123,16 @@ class CollectionFiltersForm extends HTMLElement {
     const mobileElementSelectors = ['.mobile-facets__open', '.mobile-facets__count'];
 
     mobileElementSelectors.forEach((selector) => {
-      document.querySelector(selector).innerHTML = html.querySelector(selector).innerHTML;
+      const htmlSelector = html.querySelector(selector)
+      if (htmlSelector) document.querySelector(selector).innerHTML = htmlSelector.innerHTML;
     });
 
-    document.getElementById('CollectionFiltersFormMobile').closest('menu-drawer').bindEvents();
+    const elemnt = document.getElementById('CollectionFiltersFormMobile')
+    if (elemnt) elemnt.closest('menu-drawer').bindEvents();
   }
 
   renderCounts(source, target) {
-    const countElementSelectors = ['.count-bubble','.facets__selected'];
+    const countElementSelectors = ['.count-bubble', '.facets__selected'];
     countElementSelectors.forEach((selector) => {
       const targetElement = target.querySelector(selector);
       const sourceElement = source.querySelector(selector);

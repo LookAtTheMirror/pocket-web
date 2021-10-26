@@ -13,7 +13,7 @@
 {% endcomment %}
 
 <div class="card-container">
-  <a href="{{ product_card_product.url | default: '#' }}" class="">
+  <a href="{{ product_card_product.url | default: '#' }}" class="link-product">
     <span class="visually-hidden">{{ product_card_product.title | escape }}</span>
 
     
@@ -60,18 +60,19 @@
         {%- else -%}
            <div class="card__content"><h2 class="card__text h2">{{ product_card_product.title }}</h2></div>
         {%- endif -%}
-
-        <div class="oferta">
-          {%- if product_card_product.available == false -%}
-            <span class="" aria-hidden="true">
-              {{ 'products.product.sold_out' | t }}
-            </span>
-          {%- elsif product_card_product.compare_at_price > product_card_product.price and product_card_product.available -%}
-            <span class="" aria-hidden="true">
-              {{ 'products.product.on_sale' | t }}
-            </span>
+        {%- if product_card_product.compare_at_price > product_card_product.price and product_card_product.available or product_card_product.available == false -%}
+          <div class="oferta">
+            {%- if product_card_product.available == false -%}
+              <span class="" aria-hidden="true">
+                {{ 'products.product.sold_out' | t }}
+              </span>
+            {%- elsif product_card_product.compare_at_price > product_card_product.price and product_card_product.available -%}
+              <span class="" aria-hidden="true">
+                {{ 'products.product.on_sale' | t }}
+              </span>
+            {%- endif -%}
+          </div>
           {%- endif -%}
-        </div>
 
     <div class="item-info">
       <div class="">
@@ -92,7 +93,6 @@
         {% render 'price', product: product_card_product, price_class: '' %}
       </div>
     </div>
-    <button>Agregar</button>
   </a>
 
 </div>
