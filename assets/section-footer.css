@@ -575,7 +575,6 @@ footer details[open] summary ~ * {
   padding: 16%;
   background-color: #f5be0b;
   position: absolute;
-  bottom: 70px;
 }
 .list-social-item img {
   width: 100%;
@@ -609,7 +608,7 @@ footer details[open] summary ~ * {
   .socialnav {
     width: 3%;
     right: 0;
-    bottom: 40%;
+    top: 20%;
   }
   .socialmenu-icon {
     display: none;

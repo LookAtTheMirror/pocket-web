@@ -511,7 +511,7 @@ h6:empty {
   text-underline-offset: 0.3rem;
   color: rgb(var(--color-link));
   background-color: transparent;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
 }
 
 .link--text {
@@ -1061,6 +1061,7 @@ deferred-media {
 .button,
 .shopify-challenge__button,
 .customer button {
+  border-radius: 5px;
   cursor: pointer;
   display: inline-flex;
   justify-content: center;
@@ -1095,9 +1096,11 @@ deferred-media {
 .button-label,
 .shopify-challenge__button,
 .customer button {
+  border-radius: 5px;
   font-size: 1.5rem;
   letter-spacing: 0.1rem;
   line-height: 1.2;
+  outline: none;
 }
 
 .button--tertiary {
@@ -1242,6 +1245,7 @@ deferred-media {
   position: relative;
   width: 100%;
   display: flex;
+  align-items: center;
 }
 
 .customer .field {
@@ -1264,7 +1268,6 @@ deferred-media {
   font-family: var(--font-body-family);
   font-size: 1.2rem;
   left: 2rem;
-  top: 1rem;
   margin-bottom: 0;
   pointer-events: none;
   position: absolute;
@@ -1272,6 +1275,7 @@ deferred-media {
   color: #000;
   letter-spacing: 0.1rem;
   line-height: 1.5;
+  font-weight: bold;
 }
 
 .field__input:focus ~ .field__label,
@@ -1535,7 +1539,7 @@ input[type='checkbox'] {
 
 .cart-count-bubble {
   position: absolute;
-  background-color: #F7BE00;
+  background-color: #f7be00;
   color: rgb(var(--color-base-solid-button-labels));
   height: 1.7rem;
   width: 1.7rem;
@@ -1628,7 +1632,7 @@ input[type='checkbox'] {
 }
 
 .header {
-  height: 83px;
+  height: 100px;
   display: grid;
   grid-template-areas: 'left-icon heading icons';
   grid-template-columns: 1fr 2fr 1fr;
@@ -1660,9 +1664,9 @@ input[type='checkbox'] {
   }
 
   .header--middle-left {
-    grid-template-areas: 'heading navigation icons';
-    grid-template-columns: auto 1fr auto;
-    column-gap: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .header--top-center {
@@ -1724,6 +1728,9 @@ input[type='checkbox'] {
   .header__heading-link {
     margin-left: -0.75rem;
   }
+  .header__heading {
+    margin-left: 3rem;
+  }
 
   .header__heading,
   .header__heading-link {
@@ -1742,6 +1749,8 @@ input[type='checkbox'] {
   grid-area: icons;
   justify-self: end;
   align-items: center;
+  width: 100%;
+  justify-content: flex-end;
 }
 
 .header__icon:not(.header__icon--summary),
@@ -1776,12 +1785,11 @@ input[type='checkbox'] {
   height: 3rem;
   width: 3rem;
 }
-.header__icon--cart{
+.header__icon--cart {
   position: relative;
 }
 
 @media screen and (max-width: 989px) {
-  
   menu-drawer ~ .header__icons .header__icon--account {
     display: none;
   }
@@ -1805,6 +1813,7 @@ menu-drawer + .header__search {
 .header__search {
   display: inline-flex;
   line-height: 0;
+  width: 80%;
 }
 
 @media screen and (min-width: 990px) {
@@ -1867,10 +1876,6 @@ details[open] > .search-modal {
 }
 
 @media screen and (min-width: 990px) {
-  .search-modal__form {
-    max-width: 47.8rem;
-  }
-
   .search-modal__close-button {
     position: initial;
     margin-left: 0.5rem;
@@ -1892,7 +1897,7 @@ details[open] > .header__icon--menu .icon-hamburger {
   opacity: 0;
   transform: scale(0.8);
 }
-.icon-hamburger{
+.icon-hamburger {
   color: #f5be0b;
 }
 .js details[open]:not(.menu-opening) > .header__icon--menu .icon-close {
@@ -1926,7 +1931,7 @@ details[open] > .header__icon--menu .icon-hamburger {
 
 @media screen and (min-width: 990px) {
   .header__inline-menu {
-    display: block;
+    display: none;
   }
 
   .header--top-center .header__inline-menu {
@@ -2047,18 +2052,22 @@ details-disclosure > details {
   margin: 0;
   text-decoration: none;
   background-color: #f5be0b;
-  padding: 0.5rem 0;
+  padding: 0.5rem 0.5rem;
+  border-radius: 5px;
   color: black;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   width: 110px;
+}
+.login_text {
+  margin: 0;
 }
 .register_p {
   margin: 0;
   text-decoration: none;
   padding: 0.5rem 0;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   width: 110px;
 }
 
@@ -2075,6 +2084,8 @@ details-disclosure > details {
   .header__icons_hidden {
     display: flex;
     align-items: center;
+    width: 100%;
+    justify-content: flex-end;
   }
   .header__search_hidden {
     display: none;
@@ -2087,7 +2098,6 @@ details-disclosure > details {
   display: flex;
   flex-wrap: wrap;
 }
-
 
 .searchContainer {
   width: 100%;
@@ -2218,10 +2228,10 @@ details-disclosure > details {
   margin: 10px 0;
   font-family: var(--font-body-family);
 }
-.priceFilterSummary{
+.priceFilterSummary {
   margin-bottom: 20px;
 }
-.field__currency{
+.field__currency {
   font-family: var(--font-body-family);
 }
 .filterLabel {
@@ -2256,7 +2266,7 @@ details-disclosure > details {
 }
 
 #MainContent {
-  padding-top: 83px;
+  padding-top: 100px;
 }
 
 /* collection */
@@ -2310,8 +2320,10 @@ details-disclosure > details {
 .item-info_text {
   display: block;
   font-size: 1.5rem;
+  font-weight: bold;
 }
 .oferta {
+  border-radius: 5px;
   position: absolute;
   top: 0;
   text-decoration: none;
@@ -2322,16 +2334,16 @@ details-disclosure > details {
   left: 0;
 }
 .slider-desktop {
-  display: none;
+  display: block;
 }
-.slideMobileContainer{
+.slideMobileContainer {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
 }
 
-.sliderBox{
+.sliderBox {
   width: calc(100% - 88px);
 }
 
@@ -2419,7 +2431,7 @@ details-disclosure > details {
   align-items: center;
   justify-content: flex-start;
   margin-bottom: 1rem;
-  font-family:var(--font-body-family);
+  font-family: var(--font-body-family);
 }
 
 .linkBox {
@@ -2465,7 +2477,7 @@ a {
 }
 
 @media screen and (max-width: 990px) {
-  .header{
+  .header {
     height: 140px;
   }
   .ofertTitle {
@@ -2510,6 +2522,9 @@ a {
   }
 
   .slider-desktop {
+    display: block;
+  }
+  .sliderCollectionDesktop{
     display: none;
   }
   .item-info {
@@ -2525,5 +2540,4 @@ a {
 }
 
 @media screen and (max-width: 750px) {
-  
 }

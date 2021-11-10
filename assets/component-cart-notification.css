@@ -8,9 +8,7 @@
 
 .cart-notification {
   background-color: rgb(var(--color-background));
-  border-color: rgba(var(--color-foreground), 0.2);
-  border-style: solid;
-  border-width: 0 0 0.1rem;
+  border: none;
   padding: 2.5rem 3.5rem;
   position: fixed;
   right: 0;
@@ -29,8 +27,7 @@
 }
 
 .cart-notification.animate {
-  transition: transform var(--duration-short) ease,
-    visibility 0s var(--duration-short) ease;
+  transition: transform var(--duration-short) ease, visibility 0s var(--duration-short) ease;
 }
 
 .cart-notification.active {
@@ -39,9 +36,9 @@
   visibility: visible;
   margin-top: 33%;
 }
-@media screen and (min-width: 990px){
-  .cart-notification.active{
-    margin-top: 75px;
+@media screen and (min-width: 990px) {
+  .cart-notification.active {
+    margin-top: 100px;
   }
 }
 
