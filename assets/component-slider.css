@@ -131,10 +131,12 @@ slider-component .slider-buttons {
 .slider-button {
   color: rgba(var(--color-foreground), 0.75);
   border: 0.1rem solid rgba(var(--color-foreground), 0.08);
-  background-color: rgb(var(--color-background));
+  background-color: transparent;
   cursor: pointer;
   width: 44px;
   height: 44px;
+  position: absolute;
+  z-index: 1;
 }
 
 .slider-button:not([disabled]):hover {
@@ -162,6 +164,10 @@ slider-component .slider-buttons {
 
 .slider-button[disabled] .icon {
   color: rgba(var(--color-foreground), 0.3);
+}
+
+.slider-button--next{
+  right: 0;
 }
 
 .slider-button--next .icon {

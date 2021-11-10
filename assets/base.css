@@ -2344,7 +2344,7 @@ details-disclosure > details {
 }
 
 .sliderBox {
-  width: calc(100% - 88px);
+  width: 100%;
 }
 
 @media screen and (min-width: 990px) {
