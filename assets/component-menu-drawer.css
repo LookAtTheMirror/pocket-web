@@ -93,6 +93,7 @@ details[open].menu-opening > .menu-drawer__submenu {
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
+  background-color: black;
 }
 
 .no-js .menu-drawer__navigation {
@@ -172,11 +173,11 @@ details[open].menu-opening > .menu-drawer__submenu {
   width: 100%;
   bottom: 0;
   left: 0;
-  background-color: rgb(var(--color-background));
   border-left: 0.1rem solid rgba(var(--color-foreground), 0.2);
   z-index: 1;
   transform: translateX(100%);
   visibility: hidden;
+  background-color: black;
 }
 
 .js .menu-drawer__submenu .menu-drawer__submenu {
