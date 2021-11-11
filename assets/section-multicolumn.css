@@ -283,6 +283,7 @@
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
+  padding-top: 5rem;
 }
 .valores-list img {
   object-fit: contain;
