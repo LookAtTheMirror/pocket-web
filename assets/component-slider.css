@@ -159,7 +159,7 @@ slider-component .slider-buttons {
 }
 
 .slider-button .icon {
-  height: 0.6rem;
+  height: 1rem;
 }
 
 .slider-button[disabled] .icon {
